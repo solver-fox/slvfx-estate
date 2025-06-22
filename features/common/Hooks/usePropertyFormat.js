@@ -5,7 +5,7 @@ export const usePropertyFormat = (property) => {
   const price = property.price.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   });
 
   const title = property.title;
@@ -22,7 +22,9 @@ export const usePropertyFormat = (property) => {
   const panorama = property.panoramas?.length ? property.panoramas[0].url : [];
 
   const amenities =
-    property.amenities?.flatMap((amenity) => amenity.amenities?.map((item) => item.text)) || [];
+    property.amenities?.flatMap((amenity) =>
+      amenity.amenities?.map((item) => item.text)
+    ) || [];
 
   const furnished = property.furnishingStatus;
 
@@ -42,6 +44,6 @@ export const usePropertyFormat = (property) => {
     coverVideo,
     panorama,
     amenities,
-    furnished
+    furnished,
   };
 };
